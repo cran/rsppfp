@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>rsppfp Description</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">rsppfp Description</h1>
+
+
+
+<p><strong>rsppfp</strong> is a package that enables the transformation of graphs, and their sets of forbidden paths, to use them later with other tools. As it is part of an undergoing project, new functionalities could be added in the future.</p>
+<div id="input-data" class="section level2">
+<h2>Input Data</h2>
+<p><strong>rsppfp</strong> manipulates input and output in standard R data frame formats, maximizing its compatibility with other packages, and allowing its results to blend in with other networking tools. In the transformation functions, the primary input data consists of two different data frames and an additional parameter for parallel processing.</p>
+<p>First, <code>g</code> represents the original graph as a data frame of arcs. Arcs are mainly represented as origin-destination pairs, with the column names <code>from</code> and <code>to</code>, respectively. These two columns need to be in positions <code>1:2</code> of the data frame. Each arc may or not may have additional attributes, and this is handled internally. The nodes names may be of any simple type, such as character, integer, double, and others; <em>however, the returned graph will have nodes of character type</em>.</p>
+<p>Second, <code>f</code> represents the data frame of forbidden paths, where each row of the data frame is a path. The paths may be of different lengths, but the unused columns must be filled with <code>NA</code> or <code>&quot;&quot;</code> values. Also, all nodes used in <code>f</code> must be part of <code>g</code>; they can be of any data type, but they are internally manipulated as characters. Columns names are irrelevant on this data frame. It is assumed that forbidden paths will at least involve three nodes. This is because paths of two nodes are simple arcs, in which case they should be directly removed from as they are forbidden.</p>
+<p>Third, <code>cores</code> is an optional parameter that enables the use of parallel processing in these algorithms. It is recommended that for a computer with <code>n</code> cores, the maximum possible value for this parameter should be <code>n-1</code>, to allow one core to take care of the operative system’s functions. If no value is received, cores defaults to <code>1L</code>, removing the parallel abilities.</p>
+<p>The following are declarations of a graph and its set of forbidden paths.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a new graph and show it.</span>
+<span class="co"># Each graph can be read from different sources, but that is not the scope of rsppfp.</span>
+g &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">from =</span> <span class="kw">c</span>(<span class="st">&quot;s&quot;</span>, <span class="st">&quot;s&quot;</span>, <span class="st">&quot;s&quot;</span>, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;x&quot;</span>, <span class="st">&quot;x&quot;</span>, <span class="st">&quot;v&quot;</span>, <span class="st">&quot;v&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;y&quot;</span>), 
+                <span class="dt">to =</span> <span class="kw">c</span>(<span class="st">&quot;u&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;x&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;v&quot;</span>, <span class="st">&quot;v&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;w&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;u&quot;</span>), 
+                <span class="dt">cost =</span> <span class="kw">c</span>(1L, 3L, 1L, 1L, 5L, 1L, 6L, 1L, 1L, 1L, 1L, 7L, 8L), 
+                <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># Create a list of forbidden paths, for the graph g</span>
+f &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">V1 =</span> <span class="kw">c</span>(<span class="st">&quot;s&quot;</span>, <span class="st">&quot;u&quot;</span>), <span class="dt">V2 =</span> <span class="kw">c</span>(<span class="st">&quot;u&quot;</span>, <span class="st">&quot;v&quot;</span>), <span class="dt">V3 =</span> <span class="kw">c</span>(<span class="st">&quot;v&quot;</span>, <span class="st">&quot;y&quot;</span>), <span class="dt">V4 =</span> <span class="kw">c</span>(<span class="st">&quot;t&quot;</span>, <span class="st">&quot;u&quot;</span>), 
+                <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="available-functions" class="section level2">
+<h2>Available Functions</h2>
+<p><strong>rsppfp</strong> core implements two different transformation algorithms. In both cases, the set of forbidden paths must be known beforehand. There are also additional parsin functions. Each function documentation is available in the <a href="reference/index.html">reference</a>.</p>
+<div id="transformations" class="section level3">
+<h3>Transformations</h3>
+<p>The first one is Villeneuve and Desaulniers (2005) transformation. Though it supports multiple paths of different sizes, it is restricted by the fact that no <code>f_i ∈ F</code> must be, or contain, a sub-path of another <code>f_j ∈ F</code> where <code>i &lt;&gt; j</code>. This is evaluated for sub-paths of at least three nodes. Using the data from above, it can be called as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rsppfp)
+<span class="kw">modify_graph_vd</span>(g, f)
+<span class="co">#&gt;     from    to cost</span>
+<span class="co">#&gt; 2      s     w    3</span>
+<span class="co">#&gt; 3      s     x    1</span>
+<span class="co">#&gt; 4      u     w    1</span>
+<span class="co">#&gt; 6      w     v    1</span>
+<span class="co">#&gt; 7      w     y    6</span>
+<span class="co">#&gt; 8      x     w    1</span>
+<span class="co">#&gt; 9      x     y    1</span>
+<span class="co">#&gt; 10     v     y    1</span>
+<span class="co">#&gt; 11     v     t    1</span>
+<span class="co">#&gt; 12     y     t    7</span>
+<span class="co">#&gt; 13     y     u    8</span>
+<span class="co">#&gt; 1      s   s|u    1</span>
+<span class="co">#&gt; 21   s|u s|u|v    5</span>
+<span class="co">#&gt; 31     u   u|v    5</span>
+<span class="co">#&gt; 41   u|v u|v|y    1</span>
+<span class="co">#&gt; 14   s|u     w    1</span>
+<span class="co">#&gt; 22 s|u|v u|v|y    1</span>
+<span class="co">#&gt; 32   u|v u|v|y    1</span>
+<span class="co">#&gt; 42   u|v     t    1</span>
+<span class="co">#&gt; 5  u|v|y     t    7</span></code></pre></div>
+<p>The second transformation algorithm is the one developed by Hsu et al. (2009), and it is named backward construction. This algorithms also supports multiple paths of different sizes. However any forbidden path -or part of it- can be a sub-path of another forbidden path. USing the same data of the previous section, this transformation can be called as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rsppfp)
+<span class="kw">modify_graph_hsu</span>(g, f, <span class="dt">cores =</span> 1L)
+<span class="co">#&gt;     from    to cost</span>
+<span class="co">#&gt; 2      s     w    3</span>
+<span class="co">#&gt; 3      s     x    1</span>
+<span class="co">#&gt; 4      u     w    1</span>
+<span class="co">#&gt; 6      w     v    1</span>
+<span class="co">#&gt; 7      w     y    6</span>
+<span class="co">#&gt; 8      x     w    1</span>
+<span class="co">#&gt; 9      x     y    1</span>
+<span class="co">#&gt; 10     v     y    1</span>
+<span class="co">#&gt; 11     v     t    1</span>
+<span class="co">#&gt; 12     y     t    7</span>
+<span class="co">#&gt; 13     y     u    8</span>
+<span class="co">#&gt; 1      s   s|u    1</span>
+<span class="co">#&gt; 22   s|u s|u|v    5</span>
+<span class="co">#&gt; 32     u   u|v    5</span>
+<span class="co">#&gt; 42   u|v u|v|y    1</span>
+<span class="co">#&gt; 14   s|u     w    1</span>
+<span class="co">#&gt; 23 s|u|v     y    1</span>
+<span class="co">#&gt; 33   u|v     t    1</span>
+<span class="co">#&gt; 43 u|v|y     t    7</span></code></pre></div>
+</div>
+<div id="parsings" class="section level3">
+<h3>Parsings</h3>
+<p>Using the transformations provided implies two limitations. However, <strong>rsppfp</strong> provides additional functions to overcome them. These are:</p>
+<ol style="list-style-type: decimal">
+<li><p>The algorithms are only ment to work with digraphs. i.e. graphs where each arc is directed from a specific node to another node, and can only be traveled in one particular direction. There is an additional function named <a href="reference/direct_graph.html">direct_graph(…)</a> that converts an undirected graph to a digraph compatible with the transformation functions. This is done by duplicating each arc and inverting the duplicate’s origin-destination pair. This function also supports parallel processing.</p></li>
+<li><p>Because the transformations add new nodes to the graphs, any path calculated in them with be written in terms of the transformed graph. The translation of the nodes from <code>gStar</code> back to the original graph can be done using the function <a href="reference/parse_vpath.html">parse_vpath(…)</a></p></li>
+</ol>
+</div>
+<div id="outputs" class="section level3">
+<h3>Outputs</h3>
+<p>Both types of transformation functions return a graph as a data frame, in which each row represents an arc. It maintains the main columns <code>from</code> and <code>to</code> representing the arcs in terms of origin and destination nodes. Additional columns represent other arcs’ attributes, if corresponds. However, regardless of the data type used for them in the original graph, the names of nodes of the resulting graph are always of type character.</p>
+<p>This is because the generation of the new nodes names follows the proposal made by Villeneuve and Desaulniers’ (2005): as both algorithms loop through each node on each forbidden path, new nodes names are generated by incrementally concatenating the original names, split by pipe. For example, for a given <code>f_1 ∈ F = {f, c, p, t}</code> with the nodes named as alphabetical vowels, the new nodes are: <code>f|c</code>, <code>f|c|p</code>, <code>f|c|p|t</code>. In a second example, for <code>f_2 ∈ F = {1988, 1985, 1958, 1963}</code>, with nodes as integer values, the new nodes names will be: <code>1988|1985</code>, <code>1988|1985|1958</code> and <code>1988|1985|1958|1963</code>.</p>
+<p>As a result, any paths calculated in a transformed path will make use of the new nodes names.</p>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
