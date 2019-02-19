@@ -17,7 +17,7 @@
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
@@ -53,7 +53,29 @@ code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -91,25 +113,25 @@ gStar
 <span class="co">#&gt; 1      s     u    1</span>
 <span class="co">#&gt; 2      s     w    4</span>
 <span class="co">#&gt; 3      s     x    1</span>
-<span class="co">#&gt; 7      w     y    2</span>
-<span class="co">#&gt; 9      x     y    1</span>
-<span class="co">#&gt; 10     v     y    4</span>
-<span class="co">#&gt; 11     v     t    1</span>
-<span class="co">#&gt; 12     y     t    3</span>
-<span class="co">#&gt; 13     y     u    9</span>
-<span class="co">#&gt; 14     u   u|v    7</span>
-<span class="co">#&gt; 21   u|v u|v|y    4</span>
-<span class="co">#&gt; 31     u   u|w    2</span>
-<span class="co">#&gt; 4    u|w u|v|y    2</span>
-<span class="co">#&gt; 16     w   w|v    1</span>
-<span class="co">#&gt; 23     x   x|w    5</span>
-<span class="co">#&gt; 33   x|w x|w|v    1</span>
-<span class="co">#&gt; 17   w|v     t    1</span>
-<span class="co">#&gt; 24   x|w     y    2</span>
-<span class="co">#&gt; 34 x|w|v     t    1</span>
-<span class="co">#&gt; 41   u|v     t    1</span>
-<span class="co">#&gt; 5  u|v|y     t    3</span>
-<span class="co">#&gt; 6    u|w   w|v    1</span></code></pre></div>
+<span class="co">#&gt; 4      w     y    2</span>
+<span class="co">#&gt; 5      x     y    1</span>
+<span class="co">#&gt; 6      v     y    4</span>
+<span class="co">#&gt; 7      v     t    1</span>
+<span class="co">#&gt; 8      y     t    3</span>
+<span class="co">#&gt; 9      y     u    9</span>
+<span class="co">#&gt; 10     u   u|v    7</span>
+<span class="co">#&gt; 11   u|v u|v|y    4</span>
+<span class="co">#&gt; 12     u   u|w    2</span>
+<span class="co">#&gt; 13   u|w u|v|y    2</span>
+<span class="co">#&gt; 23     w   w|v    1</span>
+<span class="co">#&gt; 24     x   x|w    5</span>
+<span class="co">#&gt; 25   x|w x|w|v    1</span>
+<span class="co">#&gt; 26   w|v     t    1</span>
+<span class="co">#&gt; 27   x|w     y    2</span>
+<span class="co">#&gt; 28 x|w|v     t    1</span>
+<span class="co">#&gt; 29   u|v     t    1</span>
+<span class="co">#&gt; 30 u|v|y     t    3</span>
+<span class="co">#&gt; 31   u|w   w|v    1</span></code></pre></div>
 </div>
 <div id="integration-with-igraph" class="section level2">
 <h2>Integration with igraph</h2>
@@ -120,7 +142,7 @@ gStar.igraph &lt;-<span class="st"> </span><span class="kw">graph_from_data_fram
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This can be used to plot the graph</span>
 <span class="kw">plot</span>(gStar.igraph, <span class="dt">edge.arrow.size =</span> <span class="fl">0.5</span>, <span class="dt">vertex.size =</span> <span class="dv">20</span>, <span class="dt">xlab =</span> <span class="st">&quot;Graph&quot;</span>, 
      <span class="dt">vertex.color =</span> <span class="st">&quot;#F1F1F1&quot;</span>, <span class="dt">vertex.label.color =</span> <span class="st">&quot;#050505&quot;</span>)</code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 <p>As any path calculated in <code>gStar</code> will be given in terms of its nodes. Hence, as a result of the transformation process, <code>gStar</code> nodes <code>nStar</code> are equivalences of the original nodes. For example, a node labeled <code>Argo123</code> in the original graph <code>G</code> can be divided into several new <code>nStar_i</code>, resulting in: <code>Troya789|Argo123</code>, <code>Paris456|Troya789|Argo123</code> and <code>Polux852|Argo123</code>, besides the original node. Therefore, when searching for a path from a node to another node <code>n_i</code>, the algorithm must consider all of the <code>nStar_i</code>.</p>
 <p>The package <strong>rsppfp</strong> provides an additional function to obtain this equivalences. A code example can be seen below:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This can be used to plot the graph</span>
@@ -129,29 +151,44 @@ gStar.igraph &lt;-<span class="st"> </span><span class="kw">graph_from_data_fram
 <p>With this, the flow to obtain a <em>shortest path</em> with any algorithm, can be summarized as follows: 1. Obtain all of the target node’s equivalences. 2. For each target node found in (1): - Get the shortest path and its weight/cost from the origin node to it. 3. The less costly path is the solution.</p>
 <p>This algorithm has been implemented for igraph in an example function, named <a href="reference/get_shortest_path.html"><code>get_shortest_path</code></a>. However, although it can be used to simplify solving the shortest path, its aim is to provide guidance on how to impliment the previous logic.</p>
 <p>Its code is the following:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_shortest_path &lt;-<span class="st"> </span><span class="cf">function</span>(g, origin, dest, weightColName) {
-  <span class="co">#If there is no weight column</span>
-  <span class="cf">if</span>(<span class="op">!</span>weightColName <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(g)) {
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_shortest_path &lt;-<span class="st"> </span><span class="cf">function</span>(g, origin, dest, <span class="dt">weightColName =</span> <span class="ot">NULL</span>) {
+  <span class="co">#If there is no weight column specified, assume equal weights</span>
+  <span class="cf">if</span>(<span class="kw">is.null</span>(weightColName)) {
     g<span class="op">$</span>weight &lt;-<span class="st"> </span><span class="dv">1</span>
     weightColName &lt;-<span class="st"> &quot;weight&quot;</span>
+  <span class="co"># If the column could not be found...</span>
+  } <span class="cf">else</span> <span class="cf">if</span>(<span class="op">!</span>weightColName <span class="op">%in%</span><span class="st"> </span><span class="kw">colnames</span>(g)) {
+    <span class="co">#Show an error</span>
+    <span class="kw">stop</span>(weightColName, <span class="st">&quot; is not a variable in `g`.&quot;</span>)
   }
   
   <span class="co"># Convert the graph</span>
   g.i &lt;-<span class="st"> </span><span class="kw">graph_from_data_frame</span>(g)
   
-  
   <span class="co"># Get all nodes where for the destination is the destination</span>
-  destEq &lt;-<span class="st"> </span><span class="kw">get_all_nodes</span>(gStar, dest)
+  destEq &lt;-<span class="st"> </span><span class="kw">get_all_nodes</span>(g, dest)
   
-  <span class="co"># Find shortest paths from &quot;s&quot; to all N* corresponding to &quot;w&quot;</span>
-  sp &lt;-<span class="st"> </span><span class="kw">shortest_paths</span>(gStar.igraph, <span class="dt">from =</span> origin, <span class="dt">to =</span> destEq, 
-                       <span class="dt">weights =</span> gStar<span class="op">$</span>weightColName, <span class="dt">output =</span> <span class="st">&quot;both&quot;</span>)
+  <span class="co"># Find shortest paths from `origin` to all N* corresponding to `dest`</span>
+  <span class="co"># - suppress warning if not all destinations reachable</span>
+  sp &lt;-<span class="st"> </span><span class="kw">suppressWarnings</span>(<span class="kw">shortest_paths</span>(g.i, <span class="dt">from =</span> origin, <span class="dt">to =</span> destEq,
+                                        <span class="dt">weights =</span> <span class="kw">edge_attr</span>(g.i, weightColName),
+                                        <span class="dt">output =</span> <span class="st">&quot;both&quot;</span>))
   
+  <span class="co"># Filter out zero-length paths (return if nothing left)</span>
+  zero_length &lt;-<span class="st"> </span><span class="kw">lengths</span>(sp<span class="op">$</span>epath) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>
+  <span class="cf">if</span> (<span class="kw">all</span>(zero_length)) {
+    <span class="kw">warning</span>(<span class="st">&quot;There is no path from &quot;</span>, origin, <span class="st">&quot; to &quot;</span>, dest, <span class="st">&quot;.</span><span class="ch">\n</span><span class="st">&quot;</span>)
+    <span class="kw">return</span> (<span class="kw">character</span>(<span class="dv">0</span>))
+  } <span class="cf">else</span> {
+    sp &lt;-<span class="st"> </span><span class="kw">lapply</span>(sp, <span class="cf">function</span>(element) element[<span class="op">!</span>zero_length])
+  }
   
-  <span class="co"># Find shortest of these paths</span>
-  dist &lt;-<span class="st"> </span><span class="kw">vapply</span>(sp<span class="op">$</span>epath, <span class="cf">function</span>(path) <span class="kw">sum</span>(path<span class="op">$</span>weightColName), <span class="kw">numeric</span>(<span class="dv">1</span>)) 
+  <span class="co"># Find shortest of remaining paths</span>
+  dist &lt;-<span class="st"> </span><span class="kw">vapply</span>(sp<span class="op">$</span>epath, 
+                 <span class="cf">function</span>(path) <span class="kw">sum</span>(<span class="kw">edge_attr</span>(g.i, weightColName, path)),
+                 <span class="kw">numeric</span>(<span class="dv">1</span>)) 
   shortestPath &lt;-<span class="st"> </span>sp<span class="op">$</span>vpath[[<span class="kw">which.min</span>(dist)]]
-
+  
   <span class="co"># Convert path with nodes from N* to path with nodes from N</span>
   <span class="kw">return</span>( <span class="kw">parse_vpath</span>(<span class="kw">names</span>(shortestPath)) )
 }</code></pre></div>
@@ -159,7 +196,7 @@ gStar.igraph &lt;-<span class="st"> </span><span class="kw">graph_from_data_fram
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Obtain the shortest path using the simplified function</span>
 shortestPath &lt;-<span class="st"> </span><span class="kw">get_shortest_path</span>(gStar, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;cost&quot;</span>)
 shortestPath
-<span class="co">#&gt; [1] &quot;u&quot; &quot;v&quot; &quot;t&quot;</span></code></pre></div>
+<span class="co">#&gt; [1] &quot;u&quot; &quot;w&quot; &quot;v&quot; &quot;t&quot;</span></code></pre></div>
 <p>Also, it is worth pointing out that a path can only be translated if it is presented as a list or vector of nodes, written sequentially. In igraph, this is known as <code>vpaths</code> (vertexes paths). However, this step is done inside the convenience function.</p>
 </div>
 

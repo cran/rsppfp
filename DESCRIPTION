@@ -1,6 +1,6 @@
 Package: rsppfp
 Title: R's Shortest Path Problem with Forbidden Subpaths
-Version: 1.0.3
+Version: 1.0.4
 Authors@R: c(person("Melina", "Vidoni", email = "melinavidoni@santafe-conicet.gov.ar", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-4099-1430")),
              person("Aldo", "Vecchietti", email = "aldovec@santafe-conicet.gov.ar", role = "aut"))
 Maintainer: Melina Vidoni <melinavidoni@santafe-conicet.gov.ar>
@@ -14,14 +14,14 @@ Imports: dplyr, foreach, doParallel, igraph, tidyr, stringr
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Suggests: knitr, rmarkdown, testthat, covr, ggplot2
 VignetteBuilder: knitr
 URL: https://github.com/melvidoni/rsppfp
 BugReports: https://github.com/melvidoni/rsppfp/issues
 NeedsCompilation: no
-Packaged: 2018-11-14 14:51:45 UTC; melina
+Packaged: 2019-02-19 14:50:59 UTC; melina
 Author: Melina Vidoni [aut, cre] (<https://orcid.org/0000-0002-4099-1430>),
   Aldo Vecchietti [aut]
 Repository: CRAN
-Date/Publication: 2018-11-20 15:50:03 UTC
+Date/Publication: 2019-02-19 15:10:03 UTC

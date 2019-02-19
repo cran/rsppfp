@@ -17,7 +17,7 @@
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
@@ -53,7 +53,29 @@ code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -98,49 +120,49 @@ f &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rsppfp)
 <span class="kw">modify_graph_vd</span>(g, f)
 <span class="co">#&gt;     from    to cost</span>
-<span class="co">#&gt; 2      s     w    3</span>
-<span class="co">#&gt; 3      s     x    1</span>
-<span class="co">#&gt; 4      u     w    1</span>
-<span class="co">#&gt; 6      w     v    1</span>
-<span class="co">#&gt; 7      w     y    6</span>
-<span class="co">#&gt; 8      x     w    1</span>
-<span class="co">#&gt; 9      x     y    1</span>
-<span class="co">#&gt; 10     v     y    1</span>
-<span class="co">#&gt; 11     v     t    1</span>
-<span class="co">#&gt; 12     y     t    7</span>
-<span class="co">#&gt; 13     y     u    8</span>
-<span class="co">#&gt; 1      s   s|u    1</span>
-<span class="co">#&gt; 21   s|u s|u|v    5</span>
-<span class="co">#&gt; 31     u   u|v    5</span>
-<span class="co">#&gt; 41   u|v u|v|y    1</span>
-<span class="co">#&gt; 14   s|u     w    1</span>
-<span class="co">#&gt; 22 s|u|v u|v|y    1</span>
-<span class="co">#&gt; 32   u|v u|v|y    1</span>
-<span class="co">#&gt; 42   u|v     t    1</span>
-<span class="co">#&gt; 5  u|v|y     t    7</span></code></pre></div>
+<span class="co">#&gt; 1      s     w    3</span>
+<span class="co">#&gt; 2      s     x    1</span>
+<span class="co">#&gt; 3      u     w    1</span>
+<span class="co">#&gt; 4      w     v    1</span>
+<span class="co">#&gt; 5      w     y    6</span>
+<span class="co">#&gt; 6      x     w    1</span>
+<span class="co">#&gt; 7      x     y    1</span>
+<span class="co">#&gt; 8      v     y    1</span>
+<span class="co">#&gt; 9      v     t    1</span>
+<span class="co">#&gt; 10     y     t    7</span>
+<span class="co">#&gt; 11     y     u    8</span>
+<span class="co">#&gt; 12     s   s|u    1</span>
+<span class="co">#&gt; 13   s|u s|u|v    5</span>
+<span class="co">#&gt; 14     u   u|v    5</span>
+<span class="co">#&gt; 15   u|v u|v|y    1</span>
+<span class="co">#&gt; 16   s|u     w    1</span>
+<span class="co">#&gt; 17 s|u|v u|v|y    1</span>
+<span class="co">#&gt; 18   u|v u|v|y    1</span>
+<span class="co">#&gt; 19   u|v     t    1</span>
+<span class="co">#&gt; 20 u|v|y     t    7</span></code></pre></div>
 <p>The second transformation algorithm is the one developed by Hsu et al. (2009), and it is named backward construction. This algorithms also supports multiple paths of different sizes. However any forbidden path -or part of it- can be a sub-path of another forbidden path. USing the same data of the previous section, this transformation can be called as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rsppfp)
 <span class="kw">modify_graph_hsu</span>(g, f, <span class="dt">cores =</span> 1L)
 <span class="co">#&gt;     from    to cost</span>
-<span class="co">#&gt; 2      s     w    3</span>
-<span class="co">#&gt; 3      s     x    1</span>
-<span class="co">#&gt; 4      u     w    1</span>
-<span class="co">#&gt; 6      w     v    1</span>
-<span class="co">#&gt; 7      w     y    6</span>
-<span class="co">#&gt; 8      x     w    1</span>
-<span class="co">#&gt; 9      x     y    1</span>
-<span class="co">#&gt; 10     v     y    1</span>
-<span class="co">#&gt; 11     v     t    1</span>
-<span class="co">#&gt; 12     y     t    7</span>
-<span class="co">#&gt; 13     y     u    8</span>
-<span class="co">#&gt; 1      s   s|u    1</span>
-<span class="co">#&gt; 22   s|u s|u|v    5</span>
-<span class="co">#&gt; 32     u   u|v    5</span>
-<span class="co">#&gt; 42   u|v u|v|y    1</span>
-<span class="co">#&gt; 14   s|u     w    1</span>
-<span class="co">#&gt; 23 s|u|v     y    1</span>
-<span class="co">#&gt; 33   u|v     t    1</span>
-<span class="co">#&gt; 43 u|v|y     t    7</span></code></pre></div>
+<span class="co">#&gt; 1      s     w    3</span>
+<span class="co">#&gt; 2      s     x    1</span>
+<span class="co">#&gt; 3      u     w    1</span>
+<span class="co">#&gt; 4      w     v    1</span>
+<span class="co">#&gt; 5      w     y    6</span>
+<span class="co">#&gt; 6      x     w    1</span>
+<span class="co">#&gt; 7      x     y    1</span>
+<span class="co">#&gt; 8      v     y    1</span>
+<span class="co">#&gt; 9      v     t    1</span>
+<span class="co">#&gt; 10     y     t    7</span>
+<span class="co">#&gt; 11     y     u    8</span>
+<span class="co">#&gt; 23     s   s|u    1</span>
+<span class="co">#&gt; 24   s|u s|u|v    5</span>
+<span class="co">#&gt; 25     u   u|v    5</span>
+<span class="co">#&gt; 26   u|v u|v|y    1</span>
+<span class="co">#&gt; 27   s|u     w    1</span>
+<span class="co">#&gt; 28 s|u|v     y    1</span>
+<span class="co">#&gt; 29   u|v     t    1</span>
+<span class="co">#&gt; 30 u|v|y     t    7</span></code></pre></div>
 </div>
 <div id="parsings" class="section level3">
 <h3>Parsings</h3>
